@@ -211,7 +211,25 @@ SELECT rental.rental_id, customer.first_name, customer.last_name FROM rental
 FULL JOIN public.customer on customer.customer_id = rental.customer_id;
 
 
+--SQL EXERCISE 11
+
+SELECT actor.first_name, actor.first_name
+FROM actor, customer;
+
+(SELECT actor.first_name FROM actor)
+INTERSECT
+(SELECT first_name FROM customer);
+
+(SELECT first_name FROM actor)
+EXCEPT
+(SELECT first_name FROM customer);
 
 
+(SELECT first_name FROM actor)
+EXCEPT ALL
+(SELECT first_name FROM customer);
 
+(SELECT actor.first_name FROM actor)
+INTERSECT ALL
+(SELECT first_name FROM customer);
 
