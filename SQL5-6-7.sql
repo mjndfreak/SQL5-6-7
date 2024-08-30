@@ -233,3 +233,26 @@ EXCEPT ALL
 INTERSECT ALL
 (SELECT first_name FROM customer);
 
+
+
+--SQL EXERCISE 12
+
+SELECT title, length
+FROM film
+WHERE length >
+      (SELECT avg(length)
+       FROM film);
+
+SELECT title,rental_rate
+FROM film
+WHERE rental_rate = (SELECT MAX(rental_rate) FROM film);
+
+SELECT title,
+       rental_rate,
+       replacement_cost
+FROM film
+WHERE rental_rate = (SELECT MAX(rental_rate) FROM film)
+   OR replacement_cost = (SELECT MAX(replacement_cost) FROM film);
+
+SELECT * FROM customer
+WHERE customer_id = ALL (SELECT MAX(customer_id) FROM payment);
