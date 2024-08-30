@@ -196,6 +196,21 @@ SELECT rental.rental_id, customer.first_name, customer.last_name
 FROM rental
 INNER JOIN public.customer ON customer.customer_id = rental.customer_id
 
+--SQL EXERCISE 10
+
+SELECT city.city, country.country
+FROM city
+LEFT JOIN public.country
+ON country.country_id = city.country_id;
+
+
+SELECT payment.payment_id, customer.first_name, customer.last_name FROM payment
+RIGHT JOIN public.customer  ON customer.customer_id = payment.customer_id;
+
+SELECT rental.rental_id, customer.first_name, customer.last_name FROM rental
+FULL JOIN public.customer on customer.customer_id = rental.customer_id;
+
+
 
 
 
